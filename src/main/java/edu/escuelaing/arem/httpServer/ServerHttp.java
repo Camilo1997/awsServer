@@ -6,7 +6,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
- * This class creates an HttpServer to open local pages
+ * Esta clase crea el in y el out del cliente del servidor,
+ * ademas llama la instacia para crear los sockets de cliente 
+ * y de servidor uno tras de otro, analisa el input que
+ * recibe el servidor desde el cliente y muestra en pantalla
+ * la solicitud que realza el cliente.
  *
  * @author camilolopez
  */
