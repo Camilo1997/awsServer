@@ -41,17 +41,16 @@ public class pagWeb {
      * @throws IOException
      */
     public void getPagWeb(String param) throws IOException {
-        if (param.equals("dog")) {
-            bytesPageToShow = Files.readAllBytes(new File("./pitbullDog.png").toPath());
-            contentLength = "" + bytesPageToShow.length;
-            bytesEncabezado = encabezadoImagen.getBytes();
-        } else if (param.equals("index")) {
-            bytesPageToShow = Files.readAllBytes(new File("./urlWeb.html").toPath());
-            contentLength = "" + bytesPageToShow.length;
-            bytesEncabezado = encabezadoTexto.getBytes();
-        } else {
+        try {
+            bytesPageToShow = Files.readAllBytes(new File("./" + param).toPath());
+        } catch (IOException ex) {
+            System.err.println("File not found" + ex);
             bytesPageToShow = Files.readAllBytes(new File("./pageNotFound.html").toPath());
-            contentLength = "" + bytesPageToShow.length;
+        }
+        contentLength = "" + bytesPageToShow.length;
+        if (param.contains(".png")) {
+            bytesEncabezado = encabezadoImagen.getBytes();
+        } else {
             bytesEncabezado = encabezadoTexto.getBytes();
         }
         createBytesPage();

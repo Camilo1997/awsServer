@@ -23,13 +23,13 @@ public class ServerHttp {
                 new InputStreamReader(
                         clientServerSocket.getClientSocket().getInputStream()));
 
-        String inputLine, outputLine, pagSelected = "";
+        String inputLine, outputLine, reqSelected = "";
 
         while ((inputLine = in.readLine()) != null) {
-            if (inputLine.equals("GET /dog.png HTTP/1.1")) {
-                pagSelected = "dog";
-            } else if (inputLine.equals("GET /index.html HTTP/1.1")) {
-                pagSelected = "index";
+            if(inputLine.contains("GET")){
+                if(!inputLine.contains("favicon.ico")){
+                    reqSelected = inputLine.split(" ")[1];
+                }
             }
             System.out.println("Received: " + inputLine);
             if (!in.ready()) {
@@ -37,7 +37,7 @@ public class ServerHttp {
             }
         }
         pagWeb pagWeb = new pagWeb(clientServerSocket.getClientSocket());
-        pagWeb.getPagWeb(pagSelected);
+        pagWeb.getPagWeb(reqSelected);
         out.println(pagWeb.getPagToReturn());
 
         in.close();
