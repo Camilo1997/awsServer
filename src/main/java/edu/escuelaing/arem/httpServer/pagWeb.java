@@ -6,13 +6,12 @@ import java.net.Socket;
 import java.nio.file.Files;
 
 /**
- * Esta clase se encarga de crear el despliegue que se
- * mostrara en el navegador para una peticion realizada
- * por el cliente, en este caso peticiones de tipo GET
- * en un navegador, esta maneja el tipo de texto o imagen
- * que sera desplegado en el navegador y se encarga de dejarlo
- * para que el servidor sea capaz de desplegarlo en el navegador
- * sin ningun problema.
+ * Esta clase se encarga de crear el despliegue que se mostrara en el navegador
+ * para una peticion realizada por el cliente, en este caso peticiones de tipo
+ * GET en un navegador, esta maneja el tipo de texto o imagen que sera
+ * desplegado en el navegador y se encarga de dejarlo para que el servidor sea
+ * capaz de desplegarlo en el navegador sin ningun problema.
+ *
  * @author camilolopez
  */
 public class pagWeb {
